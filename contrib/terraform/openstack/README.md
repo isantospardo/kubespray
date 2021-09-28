@@ -80,9 +80,9 @@ specify:
 - Size of the non-ephemeral volumes to be attached to store the GlusterFS bricks
 - Other properties related to provisioning the hosts
 
-Even if you are using Flatcar Container Linux by Kinvolk for your cluster, you will still
+Even if you are using Flatcar for your cluster, you will still
 need the GlusterFS VMs to be based on either Debian or RedHat based images.
-Flatcar Container Linux by Kinvolk cannot serve GlusterFS, but can connect to it through
+Flatcar cannot serve GlusterFS, but can connect to it through
 binaries available on hyperkube v1.4.3_coreos.0 or higher.
 
 ## Requirements
@@ -507,7 +507,7 @@ So, either a bastion host, or at least master/node with a floating IP are requir
 
 #### Test access
 
-Make sure you can connect to the hosts.  Note that Flatcar Container Linux by Kinvolk will have a state `FAILED` due to Python not being present.  This is okay, because Python will be installed during bootstrapping, so long as the hosts are not `UNREACHABLE`.
+Make sure you can connect to the hosts.  Note that Flatcar will have a state `FAILED` due to Python not being present.  This is okay, because Python will be installed during bootstrapping, so long as the hosts are not `UNREACHABLE`.
 
 ```ShellSession
 $ ansible -i inventory/$CLUSTER/hosts -m ping all
@@ -537,7 +537,7 @@ Edit `inventory/$CLUSTER/group_vars/all/all.yml`:
 # Directory where the binaries will be installed
 # Default:
 # bin_dir: /usr/local/bin
-# For Flatcar Container Linux by Kinvolk:
+# For Flatcar:
 bin_dir: /opt/bin
 ```
 
@@ -565,7 +565,7 @@ kube_network_plugin: flannel
 # Can be docker_dns, host_resolvconf or none
 # Default:
 # resolvconf_mode: docker_dns
-# For Flatcar Container Linux by Kinvolk:
+# For Flatcar:
 resolvconf_mode: host_resolvconf
 ```
 
